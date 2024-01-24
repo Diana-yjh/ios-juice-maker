@@ -96,26 +96,31 @@ func consumeStock(recipe: [Ingredient]) {
                 return
             }
             strawberryCount -= fruitNameAndCount.count
+            print("\(strawberryCount)")
         case .banana:
             guard var bananaCount = fruitStore.banana else {
                 return
             }
             bananaCount -= fruitNameAndCount.count
+            print("\(bananaCount)")
         case .pineapple:
             guard var pineappleCount = fruitStore.pineapple else {
                 return
             }
             pineappleCount -= fruitNameAndCount.count
+            print("\(pineappleCount)")
         case .kiwi:
             guard var kiwiCount = fruitStore.kiwi else {
                 return
             }
             kiwiCount -= fruitNameAndCount.count
+            print("\(kiwiCount)")
         case .mango:
             guard var mangoCount = fruitStore.mango else {
                 return
             }
             mangoCount -= fruitNameAndCount.count
+            print("\(mangoCount)")
         }
     }
 }

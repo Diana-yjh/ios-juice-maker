@@ -31,34 +31,59 @@ class ViewController: UIViewController {
     }
     
     @IBAction func orderStrawberryJuice(_ sender: UIButton) {
-        // if 재고가 있으면
-        // alertSufficientStock(juiceName: "바나나")
-        // else
-        // alertSufficientStock()
-        alertInsufficientStock()
+        if juiceMaker.makeJuice(juiceMenu: .strawberryJuice) {
+            alertSufficientStock(juiceName: "딸기")
+        } else {
+            alertInsufficientStock()
+        }
     }
     
     @IBAction func orderBananaJuice(_ sender: UIButton) {
+        if juiceMaker.makeJuice(juiceMenu: .bananaJuice) {
+            alertSufficientStock(juiceName: "바나나")
+        } else {
+            alertInsufficientStock()
+        }
     }
     
     @IBAction func orderStrawberryBananaJuice(_ sender: UIButton) {
-        
+        if juiceMaker.makeJuice(juiceMenu: .strawberryBananaJuice) {
+            alertSufficientStock(juiceName: "딸기바나나")
+        } else {
+            alertInsufficientStock()
+        }
     }
     
     @IBAction func orderPineappleJuice(_ sender: UIButton) {
-        
+        if juiceMaker.makeJuice(juiceMenu: .pineappleJuice) {
+            alertSufficientStock(juiceName: "파인애플")
+        } else {
+            alertInsufficientStock()
+        }
     }
     
     @IBAction func orderMangoJuice(_ sender: UIButton) {
-        
+        if juiceMaker.makeJuice(juiceMenu: .mangoJuice) {
+            alertSufficientStock(juiceName: "망고")
+        } else {
+            alertInsufficientStock()
+        }
     }
     
     @IBAction func orderKiwiJuice(_ sender: UIButton) {
-        
+        if juiceMaker.makeJuice(juiceMenu: .kiwiJuice) {
+            alertSufficientStock(juiceName: "키위")
+        } else {
+            alertInsufficientStock()
+        }
     }
     
     @IBAction func orderMangoKiwiJuice(_ sender: UIButton) {
-        
+        if juiceMaker.makeJuice(juiceMenu: .mangoKiwiJuice) {
+            alertSufficientStock(juiceName: "망고키위")
+        } else {
+            alertInsufficientStock()
+        }
     }
     
     func alertSufficientStock(juiceName: String) {
