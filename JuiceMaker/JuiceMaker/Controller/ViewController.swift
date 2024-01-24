@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ModifyStockViewController") as? ModifyStockViewController else {
             return
         }
-        vc.modalPresentationStyle = .currentContext
+        vc.modalPresentationStyle = .pageSheet
         self.present(vc, animated: true)
     }
     
