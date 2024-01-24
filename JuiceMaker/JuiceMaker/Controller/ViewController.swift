@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         // alertSufficientStock(juiceName: "바나나")
         // else
         // alertSufficientStock()
+        alertInsufficientStock()
     }
     
     @IBAction func orderBananaJuice(_ sender: UIButton) {
@@ -71,7 +72,14 @@ class ViewController: UIViewController {
     
     func alertInsufficientStock() {
         let alert = UIAlertController(title: "알림", message: "재료가 모자라요. 재고를 수정할까요?", preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "예", style: .default, handler: nil)
+        let confirm = UIAlertAction(title: "예", style: .default)  { _ in
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ModifyStockViewController") as? ModifyStockViewController else {
+                return
+            }
+            vc.modalPresentationStyle = .pageSheet
+            self.present(vc, animated: true)
+        }
+        
         let close = UIAlertAction(title: "아니오", style: .destructive, handler: nil)
         
         alert.addAction(confirm)
