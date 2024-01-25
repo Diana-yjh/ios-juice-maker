@@ -4,12 +4,10 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-import Foundation
-import UIKit
+//import UIKit //해당 파일에서 UIKit 사용이 안되고 있음
+typealias Ingredient = (fruitName: FruitCategory, count: Int) //한번에 기능을 예측하기 어렵다
 
-typealias Ingredient = (fruitName: FruitCategory, count: Int)
-
-enum JuiceMenu {
+enum JuiceMenu { //enum을 가지고 있음에도 불구하고 Recipe로 또 따로 가지고 있으니까 중복되었다.
     case strawberryJuice
     case bananaJuice
     case kiwiJuice
@@ -18,7 +16,9 @@ enum JuiceMenu {
     case mangoJuice
     case mangoKiwiJuice
 }
-
+//객체지향적인 관점에서
+//왜 enum type // 무엇을 쓰는게 합리적인데
+//initializer 사용하는 이유가 무엇일지
 struct Recipe {
     var strawberryJuice = [(FruitCategory.strawberry, 16)]
     var bananaJuice = [(FruitCategory.banana, 3)]

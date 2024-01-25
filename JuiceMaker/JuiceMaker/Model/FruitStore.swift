@@ -6,8 +6,9 @@
 
 import Foundation
 
-enum FruitCategory: Int {
-    case strawberry
+enum FruitCategory {
+    //FruitStore와 연결도 안되고 중복되고 사용을 고려해봐야 됨 //: Int 등 나중을 고려하고 짜는 코드는 이후 정말 필요할 때 추가하기
+    case strawberry //enum 사용은 좋으나 나머지 프로퍼티들 사이에서 사용이 되야됨
     case banana
     case kiwi
     case pineapple
@@ -29,7 +30,7 @@ enum FruitCategory: Int {
     }
 }
 
-func initFruitStock() {
+func initFruitStock() { //initializer -> 좀 제대로 공부해보기 //전역함수
     let fruitStore = FruitStore.shared
     fruitStore.strawberry = 10
     fruitStore.banana = 10
@@ -37,20 +38,20 @@ func initFruitStock() {
     fruitStore.kiwi = 10
     fruitStore.mango = 10
 }
-
-class FruitStore {
+//init과 열거형 사용할 때 주의하기
+class FruitStore {//싱글톤이 정말 필요한가 에 대한 고민
     static let shared = FruitStore()
     
     private init() {}
     
-    var strawberry: Int?
+    var strawberry: Int?//왜 "?"
     var banana: Int?
     var pineapple: Int?
     var kiwi: Int?
     var mango: Int?
 }
 
-func checkSufficientStock(recipe: [Ingredient]) -> Bool {
+func checkSufficientStock(recipe: [Ingredient]) -> Bool {// 전역함수를 실행하는 객체는 누구?
     let fruitStore = FruitStore.shared
     
     for fruitNameAndCount in recipe {
